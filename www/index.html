@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <title>똑똑</title>
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="plugins/bootstrap-4.0.0-beta.2-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/index.css">
+        <script src="cordovaproj/plugins/cordova-plugin-splashscreen/www/splashscreen.js" type="text/javascript" charset="utf-8" ></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <img id="index_logo_img" src="img/logo.png">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p id="index_logo_text">병원 접수 통합 서비스<br>똑똑접수입니다.</p>
+                </div>
+            </div>
+
+            <form method="post" id="login">
+                <div class="row">
+                    <div class="col id">
+                        <input type="text" name="id" placeholder="아이디"/>
+                    </div>
+                </div>                
+                <div class="row">
+                    <div class="col password">
+                        <input type="password" name="password" placeholder="비밀번호"/>
+                    </div>
+                </div> 
+                <div class="row">
+                    <div class="col checkbox">
+                        <input type="checkbox" name="auto_login" value="1"> 자동 로그인
+                    </div>
+                </div>                
+                <div class="row">
+                    <div class="col">
+                        <button type="button" id="start">시작하기</button>
+                    </div>
+                </div>                
+                <div class="row">
+                    <div class="col">
+                        <a href="join.html">
+                            <button type="button">회원가입</button>
+                        </a>
+                    </div>
+                </div>                
+            </form>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="plugins/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="plugins/popper.min.js"></script>
+        <script type="text/javascript" src="plugins/bootstrap-4.0.0-beta.2-dist/js/bootstrap.min.js"></script>
+    
+        <script type="text/javascript" src="js/init.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>

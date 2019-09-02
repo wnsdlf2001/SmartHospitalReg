@@ -1,0 +1,231 @@
+var makeId =  function(){
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    for (var i = 0; i < 32; i++) text += possible.charAt(Math.floor(Math.random() * possible.length));
+    return text;
+};
+
+var ImageData="img/default2@2x.png";
+var submitaddr="http://13.124.174.108:3000/api/failmyUpload";
+
+/*function readFileAsBinaryString(file) {
+    console.log("readFileAsBinaryString(: "+file+")");
+    var reader = new FileReader();
+    reader.onloadend = function(e) {
+        console.log("Successfully read file as binary string");
+        var imgData = e.target.result;
+        return imgData;
+    };
+    reader.onerror = function(e) {
+        console.log("Error while reading file as binary string: "+e.target.error.code);
+    };
+    reader.readAsBinaryString(file);
+}*/
+
+$(document).ready(function () {
+    var asex;
+    var marginBottom = $('div.container_my').innerHeight();
+    console.log(marginBottom);
+    $('.contents').css("margin-bottom", marginBottom + "px");
+
+    $('.gender').click(function(){
+        var id = $(this).attr('id');
+        console.log(id);
+        if ( ( id == "male") && (id != null)) {
+            $(this).addClass("active");
+            $('#female').removeClass("active");
+            asex ="남자"
+        }
+        else{
+            $(this).addClass("active");
+            $('#male').removeClass("active");
+            asex="여자"
+        }
+    });
+
+    $("#insert_photo_img").click(function(){
+        $("input[id='img_upload']").click();
+    });
+
+    $('#img_upload').on('change', function(){
+        if (this.files && this.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#insert_photo_img').attr('src', e.target.result);
+                ImageData = e.target.result;
+            };
+            reader.onloadend = function(e) {
+                console.log("Successfully read file");
+                ImageData = e.target.result;
+            };
+            reader.onerror = function(e) {
+                console.log("Error while reading file: "+e.target.error.code);
+            };
+            //reader.readAsBinaryString(ImageData);
+            reader.readAsDataURL(this.files[0]);
+        }
+    });
+
+    var id = makeId(); // 아이디값 생성
+    document.getElementById("daumIframe").src="http://13.124.174.108:3000/api/daumJuso?id="+id; // 생성된 아이디값으로 iframe 주소 바꿔서 페이지 접속
+    var interTmp = setInterval(function(){ // 0.1초마다 체크해서 주소 선택 완료됬으면
+        // 여기서 iframe 없애야함
+        $.get("http://13.124.174.108:3000/api/daumJusoGet",{
+            "id": id
+        }).done(function(data){
+            if(data!==""&&data.length>3){
+                $("#subject_address").val(data);
+                $("#myModal_hospital").dialog("close");
+                console.log(data);
+                clearInterval(interTmp);
+            }
+        });
+    },1000);
+
+    $('#myModal_hospital').dialog({
+        modal: true,
+        autoOpen:false,
+        resizable:false,
+        closeOnEscape: true,
+        show: {
+            effect: "slide",
+            direction: "up"
+        },
+        hide: {
+            effect: "slide",
+            direction: "down"
+        },
+        my: "center",
+        at: "center",
+        of: window
+    });
+
+    $("#myModal_hospital").dialog().parents(".ui-dialog").find(".ui-dialog-titlebar").remove();
+
+    $('#subject_address').mouseover(function(){
+        $("#myModal_hospital").dialog("open");
+    });
+
+    $('.close_btn').click(function(){
+        $("#myModal_hospital").dialog("close");
+    });
+
+
+
+    var aname=document.getElementById("subject_name");
+    var abirth=document.getElementById("subject_birth");
+    var aaddress=document.getElementById("subject_address");
+    var aaddress_detail =document.getElementById("subject_address_detail");
+    var aphone_front=document.getElementById("phone_number_front");
+    var aphone_middle=document.getElementById("phone_number_middle");
+    var aphone_end=document.getElementById("phone_number_end");
+    var atext=document.getElementById("set_subject_name");
+    var final_address;
+
+
+    $.get("http://13.124.174.108:3000/api/getUser",{
+        user:localStorage.user
+    }).done(function(data){
+        $("#address_is_same").on('change', function(){
+            if($("input[id^=address_is_same]:checkbox:checked").length>0){
+                console.log(data.address);
+                $("#subject_address_detail").val(data.address);
+                $(".element_address").css("display", 'none');
+            }
+            else{
+                $("#subject_address_detail").text("");
+                $(".element_address").css("display", 'block');
+            }
+        });
+
+        $("#phone_is_same").on('change', function(){
+            if($("input[id^=phone_is_same]:checkbox:checked").length>0){
+                var strarr = [];
+                strarr = data.phone.split('-');
+                $("#phone_number_front").val(strarr[0]);
+                $("#phone_number_middle").val(strarr[1]);
+                $("#phone_number_end").val(strarr[2]);
+            }
+        });
+
+        $('.complete_btn').click(function(){
+            console.log({
+                name: aname.value,
+                sex: asex,
+                birth: abirth.value,
+                address: aaddress.value +" " +aaddress_detail.value,
+                phone : aphone_front.value +"-"+aphone_middle.value +"-"+aphone_end.value,
+                text:atext.value
+            });
+
+            if($("input[id^=address_is_same]:checkbox:checked").length>0) {
+                final_address = aaddress_detail.value;
+            }
+            else{
+
+                final_address = aaddress.value +" " +aaddress_detail.value;
+            }
+
+            $.get( "http://13.124.174.108:3000/api/setFamily",{
+                name: aname.value,
+                sex: asex,
+                birth: abirth.value,
+                address: final_address,
+                phone : aphone_front.value +"-"+aphone_middle.value +"-"+aphone_end.value,
+                UserId: data.id,
+                text:atext.value
+            }).done(function(result){
+                console.log(result);
+
+                $.get( "http://13.124.174.108:3000/api/getFamilyList",{
+                    user: localStorage.user
+                }).done(function(getdata){
+                    for(var i=0;i<getdata.length;i++){
+                        if(getdata[i].name === aname.value){
+                            $("input[id=family_id]").val(getdata[i].id);
+                            console.log($("input[id=family_id]").val());
+
+                            if(ImageData !== "img/default2@2x.png") {
+                                var formURL = "http://13.124.174.108:3000/api/failmyUpload";
+                                var encodedURI = encodeURI(formURL);
+                                // add additional parameters 'file' and 'apikey' to the multipart form
+                                var options = new FileUploadOptions();
+                                //options.fileKey = "file";
+                                //options.apikey = "familyUpload";
+                                // strip the filename from the full path
+                                //options.fileName = ImageData.substr(ImageData.lastIndexOf('/') + 1);
+                                options.params = {'file': ImageData};
+                                // create the FileTransfer object
+                                var ft = new FileTransfer();
+
+                                function win(r) {
+                                    console.log("Code = " + r.responseCode);
+                                    console.log("Response = " + r.response);
+                                    console.log("Sent = " + r.bytesSent);
+                                }
+
+                                function fail(error) {
+                                    alert("An error has occurred: Code = " + error.code);
+                                    console.log("upload error source " + error.source);
+                                    console.log("upload error target " + error.target);
+                                }
+                                // submit the multipart form
+                                ft.upload(fileURI, encodedURI, win, fail, options, false);
+
+                                //$("form#image_upload").submit();
+                                console.log($("#img_upload").val());
+                                break;
+                            }
+                        }
+                    }
+
+                    alert("가족 등록이 완료되었습니다.");
+                    var url = "myaccount.html";
+                    $(location).attr('href',url);
+                });
+
+                //document.location.href="myaccount.html";
+            });
+        });
+    });
+});

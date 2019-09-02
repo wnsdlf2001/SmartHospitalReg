@@ -1,0 +1,169 @@
+/*------------common--------------*/
+
+body, html{
+    width:auto;
+}
+
+.wrap{
+    width:100%;
+    margin:0;
+}
+
+.top{
+    width:100%;
+    position: fixed;
+    height:60px;
+    border-bottom: 1px solid #CBCBCB;
+    background-color: white;
+    top:0;
+    z-index: 1000;
+}
+
+#top_title{
+    text-align: center;
+    vertical-align: middle;
+    line-height: 60px;
+    font-size: medium;
+    color:#687882;
+}
+
+.container_my{
+    width:100%;
+    position:fixed;
+    bottom:0;
+    background-color: #f6f6f6;
+    margin:0;
+    padding: 7px 15px 3px 15px;
+    text-align: center;
+}
+
+.tab_text{
+    font-size:9pt;
+    color: #C4C4C4;
+    text-align: center;
+    vertical-align: middle;
+    line-height: inherit;
+    margin-bottom: 0 !important;
+}
+
+.tab_nav_img{
+    width:70%;
+    height:70%;
+    object-fit:contain;
+    vertical-align: middle;
+}
+
+.reserve_img{
+    width:60%;
+    height:60%;
+    object-fit:contain;
+    vertical-align: middle;
+}
+
+.contents{
+    width:100%;
+    margin-top:60px;
+    /*margin-bottom:80px;*/
+}
+
+.myinfotitle{
+    padding: 20px 20px 0 20px;
+    list-style: none;
+}
+
+.subtitle{
+    font-size: 10pt;
+    color: #70B5C7;
+    text-align: left;
+    padding:0;
+    margin:0;
+    line-height: 30px;
+}
+
+/*-------------call.html------------*/
+
+.call_ment{
+    font-size:13pt;
+    border: none;
+    text-align: center;
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+
+.call_ment_sub {
+    font-size: 9pt;
+    border: none;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+#call_photo_img{
+    width: 50%;
+    height:50%;
+    object-fit: contain;
+}
+
+.call_photo{
+    width:100%;
+    display:inline-block;
+    padding-top:90px;
+    padding-bottom: 25px;
+    text-align: center;
+}
+
+.complete_btn{
+    width:100%;
+    padding:0 0 10px 0 !important;
+    text-align: center;
+    margin:0;
+}
+
+.btn-info{
+    background-color: #84d2e6;
+    border:1px solid #84d2e6;
+    border-radius: 7px;
+}
+
+.my_btn{
+    padding:2% 20%;
+}
+
+/*-------------call_after.html------------*/
+
+.call_ment_sub2 {
+    font-size: 9pt;
+    border: none;
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+#call_after_photo_img{
+    width: 50%;
+    height:50%;
+    object-fit: contain;
+}
+
+.call_after_photo{
+    width:100%;
+    display:inline-block;
+    padding-top:90px;
+    padding-bottom: 25px;
+    text-align: center;
+}
+
+.complete_btn2{
+    width:100%;
+    padding:0 0 10px 0 !important;
+    text-align: center;
+    margin:0;
+}
+
+.btn-info2{
+    background-color: white;
+    border:2px solid #84d2e6;
+    border-radius: 7px;
+}
+
+.my_btn2{
+    padding:2% 20%;
+}

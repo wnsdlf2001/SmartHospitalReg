@@ -1,0 +1,47 @@
+#index_logo_img {
+	margin-top: 10%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 40%;
+	height: auto;
+}
+#index_logo_text {
+	margin-top: 5%;
+	color: #70B5C7;
+	font-size: 90%;
+	text-align: center;
+}
+#login {
+	margin-top: 5%;
+	margin-left: 5%;
+	margin-right: 5%;
+}
+#login .id, #login .password {
+	display: block;
+	height: 200%;
+}
+#login .id input, #login .password input {
+	border: 1px #84d2e6 solid;
+	width: 100%;
+	height: 50px;
+	padding-left: 15px;
+}
+#login .password input {
+	border-top: 0px;
+}
+#login .checkbox{ 
+	margin-top: 2%;
+	margin-bottom: 5%;
+	color: #b1b1b1;
+	font-size: 80%;	
+}
+#login button {
+	margin-top: 5%;
+	width: 100%;
+	height: 50px;
+	background-color: #84d2e6;
+	color: #FFFFFF;
+	border: 0px;
+	border-radius: 10px;
+}

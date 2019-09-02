@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">-->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="plugins/bootstrap-4.0.0-beta.2-dist/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/myaccount.css">
+    <title>예약하기</title>
+    <script src="plugins/jquery-3.2.1.min.js"></script>
+    <script src="js/reserve.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="top">
+            <p id="top_title">예약하기</p>
+        </div>
+        <div id="myModal_hospital" class="famliyinfodialog">
+            <div class="dialog_header">
+                <p class="subtitle dialog_title">병원 검색</p>
+                <p class="close_btn">X</p>
+            </div>
+            <div class="dialog_body">
+                <input type="text" class="popup_search" id="popup_search" name="hospital_search"/>
+                <span class="glyphicon glyphicon-search search_icon"></span>
+                <div class="search_list">
+                </div>
+            </div>
+        </div>
+        <div class="contents">
+            <form>
+                <ul class="subjects">
+                    <li class="myinfotitle">
+                        <div class="subject_title">
+                            <p class="subtitle">대상설정<span class="neccessary">*</span></p>
+                        </div>
+                    </li>
+                    <li class="myinfolist familylist">
+                        <div class="wrap_family">
+                            <div class="subject">
+                                <img class="clicked_img img_click" src="img/default@2x.png" id="subject_1"/>
+                                <p class="subjectname_my" id="p_subject_1">나</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="find_hospital">
+                    <li class="myinfotitle">
+                        <div class="subject_title">
+                            <p class="subtitle">병원선택<span class="neccessary">*</span></p>
+                        </div>
+                    </li>
+                    <li class="hospital_list">
+                        <div class="hospital_search">
+                            <input id="hospital_address" type="text" name="subject_address" placeholder="병원 검색">
+                        </div>
+                        <div class="hospital_detail">
+                            <select id="department_sel">
+                                <option selected="selected">진료과 선택</option>
+                                <!--<option>정형외과</option>
+                                <option>내과</option>
+                                <option>산부인과</option>
+                                <option>신경외과</option>
+                                <option>흉부외과</option>
+                                <option>소아과</option>-->
+                            </select>
+                            <p class="blank"></p>
+                            <select id="doctor_sel">
+                                <option selected="selected">진료의사 선택</option>
+                                <!--<option>김아무개</option>
+                                <option>이아무개</option>
+                                <option>박아무개</option>
+                                <option>신아무개</option>-->
+                            </select>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="subjects" id = "ul_schedule">
+                    <li class="myinfotitle">
+                        <div class="subject_title">
+                            <p class="subtitle">일시 및 시간<span class="neccessary">*</span></p>
+                        </div>
+                    </li>
+                    <li class="day_and_time">
+                        <div class="reserve_day">
+                            <input type="date" name="subject_birth" id="reserve_date" data-date-format="YYYY.mm.dd"/>
+                        </div>
+                        <div class="reserve_tbl">
+                            <table class="timetable" cellspacing="0" cellpadding="0">
+                                <colgroup>
+                                    <col width="80%" />
+                                    <col width="20%" />
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th>시간</th>
+                                        <th>선택</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="time_category" id="td_time_chk_1">
+                                            <label for="time_chk_1"><p class="time_gap">9:30 ~ 10:00</p></label>
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="time_select" id="time_chk_1" class="time_choice" value="1"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="time_category" id="td_time_chk_2">
+                                            <label for="time_chk_2"><p class="time_gap">10:00 ~ 10:30</p></label>
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="time_select" id="time_chk_2" class="time_choice" value="2"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="time_category" id="td_time_chk_3">
+                                            <label for="time_chk_3"><p class="time_gap">10:30 ~ 11:00</p></label>
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="time_select" id="time_chk_3" class="time_choice" value="3"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="time_category" id="td_time_chk_4">
+                                            <label for="time_chk_4"><p class="time_gap">11:00 ~ 11:30</p></label>
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="time_select" id="time_chk_4" class="time_choice" value="4"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="time_category" id="td_time_chk_5">
+                                            <label for="time_chk_5"><p class="time_gap">13:00 ~ 13:30</p></label>
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="time_select" id="time_chk_5" class="time_choice" value="5"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="time_category" id="td_time_chk_6">
+                                            <label for="time_chk_6"><p class="time_gap">13:30 ~ 14:00</p></label>
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="time_select" id="time_chk_6" class="time_choice" value="6"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="time_category" id="td_time_chk_7">
+                                            <label for="time_chk_7"><p class="time_gap">14:00 ~ 14:30</p></label>
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="time_select" id="time_chk_7" class="time_choice" value="7"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="time_category" id="td_time_chk_8">
+                                            <label for="time_chk_8"><p class="time_gap">14:30 ~ 15:00</p></label>
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="time_select" id="time_chk_8" class="time_choice" value="8"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="time_category" id="td_time_chk_9">
+                                            <label for="time_chk_9"><p class="time_gap">15:00 ~ 15:30</p></label>
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="time_select" id="time_chk_9" class="time_choice" value="9"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="time_category possession" id="td_time_chk_10">
+                                            <label for="time_chk_10"><p class="time_gap">15:30 ~ 16:00</p></label>
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="time_select" id="time_chk_10" class="time_choice" disabled value="10"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="time_category" id="td_time_chk_11">
+                                            <label for="time_chk_11"><p class="time_gap">16:00 ~ 16:30</p></label>
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="time_select" id="time_chk_11" class="time_choice" value="11"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="time_category possession" id="td_time_chk_12">
+                                            <label for="time_chk_12"><p class="time_gap">16:30 ~ 17:00</p></label>
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="time_select" id="time_chk_12" class="time_choice" disabled value="12"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="time_category" id="td_time_chk_13">
+                                            <label for="time_chk_13"><p class="time_gap">17:00 ~ 17:30</p></label>
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="time_select" id="time_chk_13" class="time_choice" value="13"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </li>
+                </ul>
+            </form>
+            <ul class="btn_area">
+                <div class="reserve_complete">
+                    <button type="button" class="btn btn-reserve_incomplete my_btn" id="reserve_btn">예약하기</button>
+                </div>
+            </ul>
+        </div>
+        <div class="container_my">
+            <div class="row align-items-center">
+                <div class="col">
+                    <a href="reserve.html">
+                        <img class="reserve_img" src="img/reserve_s@2x.png" align="middle"/>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="list.html">
+                        <img class="tab_nav_img" src="img/list@2x.png" align="middle"/>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="wait.html">
+                        <img class="tab_nav_img" src="img/wait@2x.png" align="middle"/>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="call_main.html">
+                        <img class="tab_nav_img" src="img/call@2x.png" align="middle"/>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="myaccount.html">
+                        <img class="tab_nav_img selected" src="img/my_account@2x.png" align="middle"/>
+                    </a>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col">
+                    <span class="tab_text selected">예약</span>
+                </div>
+                <div class="col">
+                    <span class="tab_text">조회</span>
+                </div>
+                <div class="col">
+                    <span class="tab_text">현황</span>
+                </div>
+                <div class="col">
+                    <span class="tab_text">호출</span>
+                </div>
+                <div class="col">
+                    <span class="tab_text">계정</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/init.js"></script>
+</body>
+</html>

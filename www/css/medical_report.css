@@ -1,0 +1,195 @@
+body, html{
+    width:auto;
+}
+
+.wrap{
+    width:100%;
+    margin:0;
+    font-weight: 600;
+}
+
+.top{
+    width:100%;
+    position: fixed;
+    height:60px;
+    border-bottom: 1px solid #CBCBCB;
+    background-color: white;
+    top:0;
+    z-index: 1000;
+}
+
+#top_title{
+    text-align: center;
+    vertical-align: middle;
+    line-height: 60px;
+    font-size: medium;
+    color:#687882;
+}
+
+.container_my{
+    width:100%;
+    position:fixed;
+    left:0;
+    bottom:0;
+    background-color: #f6f6f6;
+    margin:0;
+    padding: 7px 15px 3px 15px;
+    text-align: center;
+    z-index: 1;
+}
+
+.tab_text{
+    font-size:9pt;
+    color: #C4C4C4;
+    text-align: center;
+    vertical-align: middle;
+    line-height: inherit;
+    margin-bottom: 0 !important;
+}
+
+.tab_nav_img{
+    width:60%;
+    height:60%;
+    object-fit:contain;
+    vertical-align: middle;
+}
+
+.reserve_img{
+    width:50%;
+    height:50%;
+    object-fit:contain;
+    vertical-align: middle;
+}
+
+
+.contents{
+    position: relative;
+    top:60px;
+    left:0;
+    width:100%;
+    /*margin-top:60px;*/
+    overflow-y: auto;
+    z-index: 1;
+    /*margin-bottom:80px;*/
+}
+
+.myinfotitle{
+    padding: 20px 20px 0 20px;
+    list-style: none;
+}
+
+.subtitle{
+    font-size: 10pt;
+    color: #70B5C7;
+    text-align: left;
+    padding:0;
+    margin:0;
+    line-height: 30px;
+}
+
+
+.add_subject_content{
+    width:100%;
+    margin:0;
+    padding:0;
+    list-style: none;
+}
+
+.add_subject_info{
+    display:inline-block;
+    width:100%;
+    padding: 20px 20px 20px 20px;
+    list-style: none;
+    vertical-align: bottom;
+    margin:0;
+    border-bottom: 1px solid #CBCBCB;
+}
+
+.element_list{
+    width:100%;
+    display: inline-block;
+}
+
+.list_name{
+    display: inline-block;
+    font-size: 10pt;
+    color: #70B5C7;
+    width: 20%;
+    text-align: left;
+    float: left;
+    line-height: 30px;
+    letter-spacing: -0.1em;
+}
+
+.list_line{
+    font-size:11pt;
+    width: 80%;
+    text-align: left;
+    color: #9c9c9c;
+    line-height: 30px;
+    letter-spacing: -0.05em;
+}
+
+.element_button{
+    width:100%;
+    text-align: right;
+}
+
+.prescription{
+    width:35%;
+    margin: 10px 0 0 0;
+    padding: 4px 10px 4px 10px;
+    background-color: #84d2e6;
+    border: none;
+    color: white;
+    font-size: 10.5pt;
+    text-align: center;
+    border-radius: 11pt;
+    letter-spacing: -0.1em;
+}
+.tab_text_pick{
+    font-size:9pt;
+    color: #7090bd;
+    text-align: center;
+    vertical-align: middle;
+    line-height: inherit;
+    margin-bottom: 0 !important;
+}
+
+#prescription_upload{
+    display: none;
+}
+
+.prescription_show{
+    width:100%;
+    display:none;
+    z-index: 5;
+    position: fixed;
+    top:0;
+    left:0;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.uploaded{
+    width:100%;
+    height:100%;
+    object-fit: contain;
+}
+
+.shut_down_img{
+    width:100%;
+    display: block;
+    position: fixed;
+    top:60px;
+    left:0;
+    text-align:center;
+    padding:2% 5% 2% 5%;
+    font-size: 13pt;
+    font-weight:600;
+    color: #CBCBCB;
+    z-index:6;
+}
+
+.show_div{
+    list-style: none;
+}

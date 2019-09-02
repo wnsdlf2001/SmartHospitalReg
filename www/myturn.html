@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">-->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+    <!-- Bootstrap CSS -->
+    <script src="js/wait.js"></script>
+    <link rel="stylesheet" href="plugins/bootstrap-4.0.0-beta.2-dist/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/wait.css">
+    <title>진료 차례</title>
+    <script src="plugins/jquery-3.2.1.min.js"></script>
+    <script src="js/beacon2.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+    <div class="top">
+        <p id="top_title">현황보기</p>
+    </div>
+    <div id="beacon_dialog">
+        <div class="dialog_header">
+            <span class="speaker_icon"><span class="glyphicon glyphicon-exclamation-sign colored">
+            </span>
+            <p class="dialog_title">진료 알림</p>
+        </div>
+        <div class="dialog_body">
+            <div id ="dialog_name"> 진료 차례입니다. </div>
+            <div> 진료실로 오십시오. </div>
+        </div>
+        <div class="dialog_footer">
+            <button type="button" class="dialog_ok">확인</button>
+        </div>
+    </div>
+    <div class="contents_wait">
+        <form>
+            <ul class="add_subject_content">
+                <li class="add_wait_subject_info">
+                    <div class="element_wait">
+                        <div class="wait_name">접수대상</div>
+                        <div class="wait_line" id="wait_target"></div>
+                    </div>
+                    <div class="element_wait">
+                        <div class="wait_name">신청시간</div>
+                        <div class="wait_line" id="wait_date"></div>
+                    </div>
+                    <div class="element_wait">
+                        <div class="wait_name">병원</div>
+                        <div class="wait_line" id="wait_hospital"></div>
+                    </div>
+                    <div class="element_wait">
+                        <div class="wait_name">진료과</div>
+                        <div class="wait_line" id="wait_department"></div>
+                    </div>
+                    <div class="element_wait">
+                        <div class="wait_name">담당의</div>
+                        <div class="wait_line" id="wait_doctor"></div>
+                    </div>
+                </li>
+            </ul>
+            <ul class="add_subject_content">
+                <li id="waiting_title">현재 대기자 수</li>
+                <li id="waiting_number"></li>
+                <li id="waiting_time"></li>
+            </ul>
+            <div class="element_button">
+                <button type="button" class="reception_cancel">접수 취소</button>
+            </div>
+        </form>
+    </div>
+    <div class="container_my">
+        <div class="row align-items-center">
+            <div class="col">
+                <a href="reserve.html">
+                    <img class="reserve_img" src="img/reserve@2x.png" align="middle"/>
+                </a>
+            </div>
+            <div class="col">
+                <a href="list.html">
+                    <img class="tab_nav_img" src="img/list@2x.png" align="middle"/>
+                </a>
+            </div>
+            <div class="col">
+                <a href="wait.html">
+                    <img class="tab_nav_img" src="img/wait_s@2x.png" align="middle"/>
+                </a>
+            </div>
+            <div class="col">
+                <a href="call_main.html">
+                    <img class="tab_nav_img" src="img/call@2x.png" align="middle"/>
+                </a>
+            </div>
+            <div class="col">
+                <a href="myaccount.html">
+                    <img class="tab_nav_img" src="img/my_account@2x.png" align="middle"/>
+                </a>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col">
+                <span class="tab_text">예약</span>
+            </div>
+            <div class="col">
+                <span class="tab_text">조회</span>
+            </div>
+            <div class="col">
+                <span class="tab_text_pick">현황</span>
+            </div>
+            <div class="col">
+                <span class="tab_text">호출</span>
+            </div>
+            <div class="col">
+                <span class="tab_text">계정</span>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/init.js"></script>
+</body>
+</html>

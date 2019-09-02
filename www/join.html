@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">-->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="plugins/bootstrap-4.0.0-beta.2-dist/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/join.css">
+
+    <title>가입하기</title>
+    <script src="plugins/jquery-3.2.1.min.js"></script>
+    <script src="http://d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+    <script src="js/join.js"></script>
+    <script src="js/join2.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+</head>
+
+<body>
+<div class="wrap">
+    <div class="top">
+        <p id="top_title">가입하기</p>
+    </div>
+    <div id="myModal_hospital" class="famliyinfodialog">
+        <div class="dialog_body">
+            <p class="close_btn">닫기</p>
+            <iframe width="200%" height="200%" id='daumIframe' ng-show="juso_show"></iframe>
+            </div>
+        </div>
+    </div>
+    <div class="contents">
+        <form>
+            <ul class="add_subject_content">
+                <li class="myinfotitle">
+                    <p class="subtitle">기본 설정</p>
+                </li>
+                <li class="add_subject_info">
+                    <div class="element_id">
+                        <input id="subject_id" type="text" name="subject_id" placeholder="사용하실 아이디를 입력하세요.(3글자~10글자의 한영, 숫자)" minlength="3" maxlength="10">
+                    </div>
+                    <div id="element_idcheck">
+                        사용 불가능
+                    </div>
+                    <div class="element_password">
+                        <input id="subject_password" type="password" name="subject_password" placeholder="사용하실 비밀번호를 입력하세요.(6글자 이상의 한영, 숫자)" minlength="6">
+                    </div>
+                    <div id="element_passwordcheck">
+                        사용 불가능
+                    </div>
+                    <div class="element_repassword">
+                        <input id="subject_repassword" type="password" name="subject_repassword" placeholder="확인을 위해 위에서 입력한 비밀번호를 재입력해주세요." minlength="6">
+                    </div>
+                    <div id="element_repasswordcheck">
+                        불일치
+                    </div>
+                </li>
+            </ul>
+        </form>
+        <form>
+        <ul class="add_final_subject_content">
+            <li class="myinfotitle">
+                <p class="subtitle">기본 정보 입력</p>
+            </li>
+            <li class="add_subject_info">
+                <div class="element_name">
+                    <label for="subject_name" class="subject_info_label">이름</label>
+                    <input type="text" name="subject_name" id="subject_name">
+                    <a class="gender" id="male">남</a><a class="gender" id="female">여</a>
+                </div>
+                <div class="element_birth">
+                    <label for="subject_birth" class="subject_info_label">생년월일</label>
+                    <input type="date" name="subject_birth" id="subject_birth">
+                </div>
+                <div class="element_address">
+
+                    <label for="subject_address" class="subject_info_label">주소</label>
+                    <input id="subject_address" type="text" name="subject_address" class="postcodify_address" placeholder="도로명 주소 찾기">
+                    <!--<iframe width="100%" height="350px" id='daumIframe' ng-show="juso_show"></iframe></div>-->
+                <div class="element_address">
+                    <label for="subject_address_detail" class="subject_info_label">주소상세</label>
+                    <input id="subject_address_detail" type="text" name="subject_address_detail" class="postcodify_details" placeholder="상세 주소 입력">
+                </div>
+                <div class="element_phone">
+                    <label class="subject_info_label">전화번호</label>
+                    <select id="phone_number_front">
+                        <option>010</option>
+                        <option>011</option>
+                        <option>012</option>
+                        <option>013</option>
+                        <option>014</option>
+                        <option>015</option>
+                        <option>016</option>
+                        <option>017</option>
+                        <option>018</option>
+                        <option>019</option>
+                    </select>
+                    <input type="number" id="phone_number_middle" class="phone_number" minlength="3" maxlength="4"><p class="dash">-</p><input type="number" id="phone_number_end" class="phone_number" minlength="3" maxlength="4">
+                </div>
+            </li>
+            <div class="complete_btn">
+                <button type="button" id="complete_btn" class="btn btn-info my_btn">가입완료</button>
+            </div>
+        </ul>
+    </form>
+    </div>
+</div>
+<script type="text/javascript" src="js/join.js"></script>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/init.js"></script>
+
+</body>
+</html>

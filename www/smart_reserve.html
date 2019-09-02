@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">-->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="plugins/bootstrap-4.0.0-beta.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/myaccount.css">
+    <title>스마트접수</title>
+    <script src="plugins/jquery-3.2.1.min.js"></script>
+    <script src="js/smart_reserve.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="top">
+            <p id="top_title">스마트접수</p>
+        </div>
+        <div class="contents">
+            <ul class="subjects">
+                <li class="myinfotitle">
+                    <div class="subject_title">
+                        <p class="subtitle">대상설정<span class="neccessary">*</span></p>
+                    </div>
+                </li>
+                <li class="myinfolist familylist">
+                    <div class="wrap_family">
+                        <div class="subject">
+                            <img class="clicked_img img_click" src="img/default@2x.png" id="subject_1"/>
+                            <p class="subjectname_my" id="p_subject_1">나</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <ul class="find_hospital">
+                <li class="myinfotitle">
+                    <div class="subject_title">
+                        <p class="subtitle">접수 입력<span class="neccessary">*</span></p>
+                    </div>
+                </li>
+                <li class="hospital_list">
+                    <div class="hospital_detail">
+                        <select id="hospital_part">
+                            <option>진료과 선택</option>
+                        </select>
+                        <p class="blank"></p>
+                        <select id="part_doctor">
+                            <option>진료의사 선택</option>
+                        </select>
+                    </div>
+                </li>
+            </ul>
+            <ul class="find_hospital">
+                <li class="myinfotitle">
+                    <div class="subject_title">
+                        <p class="subtitle">추가 사항</p>
+                    </div>
+                    <div class="extra">
+                        <textarea class="extra_text" placeholder="기타 전달하실 사항을 입력하세요(선택사항)"></textarea>
+                    </div>
+                </li>
+                <li class="smartbutton">
+                    <a id = "smart_register">
+                        <button type="button" class="register_button">접수</button>
+                    </a>
+                    <a href="beacon.html">
+                        <button type="button" class="cancel_button">취소</button>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/init.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<iframe width="100%" height="350px" id='daumIframe' ng-show="juso_show"></iframe>
+<button type="button" ng-click="jusoSearch()" class="button">닫기</button>
+<script>
+    var makeId =  function(){
+        var text = "";
+        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        for (var i = 0; i < 32; i++) text += possible.charAt(Math.floor(Math.random() * possible.length));
+        return text;
+    }
+
+    $( document ).ready(function() {
+
+		var id = makeId(); // 아이디값 생성
+		document.getElementById("daumIframe").src="http://13.124.174.108:3000/api/daumJuso?id="+id; // 생성된 아이디값으로 iframe 주소 바꿔서 페이지 접속
+		var interTmp = setInterval(function(){ // 0.1초마다 체크해서 주소 선택 완료됬으면
+			// 여기서 iframe 없애야함
+			$.get("http://13.124.174.108:3000/api/daumJusoGet",{
+				"id": id
+			}).done(function(data){
+                localStorage.setItem("address",data);
+                console.log(data);
+				if(data!=""&&data.length>3){
+                    $("#subject_address").val(data);
+					console.log(data);
+					clearInterval(interTmp);
+				}
+			});			
+		},1000);
+	});
+
+</script>

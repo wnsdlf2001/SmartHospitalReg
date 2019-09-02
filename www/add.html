@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+     <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">-->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="plugins/bootstrap-4.0.0-beta.2-dist/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/myaccount.css">
+        <title>접수 대상 추가하기</title>
+        <script src="plugins/jquery-3.2.1.min.js"></script>
+        <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+        <script src="js/add.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="top">
+                <p id="top_title">내 계정</p>
+            </div>
+            <div id="myModal_hospital" class="famliyinfodialog">
+                <div class="dialog_body">
+                    <p class="close_btn">닫기</p>
+                    <iframe width="100%" height="100%" id='daumIframe'></iframe>
+                    <!--ng-show="juso_show"-->
+                </div>
+            </div>
+            <div class="contents">
+                <ul class="add_subject_content">
+                    <li class="myinfotitle">
+                        <p class="subtitle">접수 대상 추가하기</p>
+                    </li>
+                    <li class="add_subject_info">
+                        <div class="element_name">
+                            <label for="subject_name" class="subject_info_label">이름</label>
+                            <input type="text" name="subject_name" id="subject_name">
+                            <a class="gender" id="male">남</a><a class="gender" id="female">여</a>
+                        </div>
+                        <div class="element_birth">
+                            <label for="subject_birth" class="subject_info_label">생년월일</label>
+                            <input type="date" name="subject_birth" id="subject_birth">
+                        </div>
+                        <div class="element_address">
+                            <label for="subject_address" class="subject_info_label">주소</label>
+                            <input id="subject_address" type="text" name="subject_address" class="postcodify_address" placeholder="도로명 주소 찾기">
+
+                        </div>
+                        <div class="element_address2">
+                            <label for="subject_address_detail" class="subject_info_label">주소상세</label>
+                            <input id="subject_address_detail" type="text" name="subject_address_detail" class="postcodify_details" placeholder="상세 주소 입력">
+                            <div class="same_chk_box">
+                                <input type="checkbox" name="is_same" id="address_is_same"><label for="address_is_same" class="is_same">내 주소와 동일</label>
+                            </div>
+                        </div>
+                        <div class="element_phone">
+                            <label class="subject_info_label">전화번호</label>
+                            <select id="phone_number_front">
+                                <option>010</option>
+                                <option>011</option>
+                                <option>012</option>
+                                <option>013</option>
+                                <option>014</option>
+                                <option>015</option>
+                                <option>016</option>
+                                <option>017</option>
+                                <option>018</option>
+                                <option>019</option>
+                            </select>
+                            <input type="number" id="phone_number_middle" class="phone_number" minlength="3" maxlength="4"><p class="dash">-</p><input type="number" id="phone_number_end" class="phone_number" minlength="3" maxlength="4">
+                            <div class="same_chk_box">
+                                <input type="checkbox" name="is_same" id="phone_is_same"><label for="phone_is_same" class="is_same">내 번호 등록</label>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="set_subject">
+                    <div class="insert_photo">
+                        <img src="img/camera@2x.png" id="insert_photo_img"/>
+                        <form action="http://13.124.174.108:3000/api/failmyUpload" method="post" target="hidden-iframe" enctype="multipart/form-data" id="image_upload">
+                            <input type="file" id="img_upload" accept="file_extension|image/*" name="file"/>
+                            <input type="hidden" name="id" value="3" id = "family_id">
+                            <input type="hidden" name="text" value="testettatetsat">
+                        </form>
+                        <iframe name="hidden-iframe" id="hidden-iframe" src="http://13.124.174.108:3000/api/failmyUpload"></iframe>
+                    </div>
+                    <div class="insert_name">
+                        <input type="text" name="set_subject_name" id="set_subject_name" placeholder="저장할 이름">
+                    </div>
+                </ul>
+                <div class="complete_btn">
+                    <button type="button" id="complete_btn" class="btn btn-info my_btn">등록하기</button>
+                </div>
+            </div>
+            <div class="container_my">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <a href="reserve.html">
+                            <img class="reserve_img" src="img/reserve@2x.png" align="middle"/>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="list.html">
+                            <img class="tab_nav_img" src="img/list@2x.png" align="middle"/>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="wait.html">
+                            <img class="tab_nav_img" src="img/wait@2x.png" align="middle"/>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="call_main.html">
+                            <img class="tab_nav_img" src="img/call@2x.png" align="middle"/>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="myaccount.html">
+                            <img class="tab_nav_img selected" src="img/my_account_s@2x.png" align="middle"/>
+                        </a>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col">
+                        <span class="tab_text">예약</span>
+                    </div>
+                    <div class="col">
+                        <span class="tab_text">조회</span>
+                    </div>
+                    <div class="col">
+                        <span class="tab_text">현황</span>
+                    </div>
+                    <div class="col">
+                        <span class="tab_text">호출</span>
+                    </div>
+                    <div class="col">
+                        <span class="tab_text selected">계정</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/init.js"></script>
+    </body>
+</html>

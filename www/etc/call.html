@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="plugins/bootstrap-4.0.0-beta.2-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/call.css">
+        <title>도우미 호출하기</title>
+        <script src="plugins/jquery-3.2.1.min.js"></script>
+        <script src="plugins/myaccount.js"></script>
+        <title>add</title>
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="top">
+                <p id="top_title">호출하기</p>
+            </div>
+            <div class="contents">
+                <ul class="set_subject">
+                    <div class="call_photo">
+                        <img src="img/call_main@2x.png" id="call_photo_img"/>
+                    </div>
+                    <div class="call_ment">
+                        <label type="text">현재 위치에서 직원을 부르시겠습니까?</label>
+                    </div>
+                    <div class="call_ment_sub">
+                        <label type="text">호출 서비스는 의료실까지 거동이 불편하시거나</label>
+                        <label type="text">기타 응급 상황이 발생한 경우에만 사용해주세요</label>
+                    </div>
+                </ul>
+                <div class="complete_btn">
+                    <button type="button" class="btn btn-info my_btn">호출하기</button>
+                </div>
+            </div>
+            <div class="container_my">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <img class="reserve_img" src="img/reserve@2x.png" align="middle"/>
+                    </div>
+                    <div class="col">
+                        <img class="tab_nav_img" src="img/list@2x.png" align="middle"/>
+                    </div>
+                    <div class="col">
+                        <img class="tab_nav_img" src="img/wait@2x.png" align="middle"/>
+                    </div>
+                    <div class="col">
+                        <img class="tab_nav_img" src="img/call@2x.png" align="middle"/>
+                    </div>
+                    <div class="col">
+                        <img class="tab_nav_img" src="img/my_account_s@2x.png" align="middle"/>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col">
+                        <span class="tab_text">예약</span>
+                    </div>
+                    <div class="col">
+                        <span class="tab_text">조회</span>
+                    </div>
+                    <div class="col">
+                        <span class="tab_text">현황</span>
+                    </div>
+                    <div class="col">
+                        <span class="tab_text">호출</span>
+                    </div>
+                    <div class="col">
+                        <span class="tab_text">계정</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

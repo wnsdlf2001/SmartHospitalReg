@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">-->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="plugins/bootstrap-4.0.0-beta.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/myaccount.css">
+    <title>내 계정</title>
+    <script src="plugins/jquery-3.2.1.min.js"></script>
+    <script src="js/myaccount.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="top">
+            <p id="top_title">내 계정</p>
+        </div>
+        <div id="myModal2" class="famliyinfodialog">
+            <div class="dialog_header">
+                <p class="subtitle dialog_title">대상 정보</p>
+                <p class="close_btn">X</p>
+            </div>
+            <div class="dialog_body">
+                <ul class="famliyinfolist">
+                    <li class="famliyinfo">
+                        <p class="listtitle">이름</p>
+                        <p class="listcontent" id="modal_name"></p>
+                    </li>
+                    <li class="famliyinfo">
+                        <p class="listtitle">성별</p>
+                        <p class="listcontent" id="modal_sex"></p>
+                    </li>
+                    <li class="famliyinfo">
+                        <p class="listtitle">생년월일</p>
+                        <p class="listcontent" id="modal_birth"></p>
+                    </li>
+                    <li class="famliyinfo">
+                        <p class="listtitle">주소</p>
+                        <p class="listcontent" id="modal_address"></p>
+                    </li>
+                    <li class="famliyinfo">
+                        <p class="listtitle">전화번호</p>
+                        <p class="listcontent" id="modal_phone"></p>
+                    </li>
+                </ul>
+            </div>
+            <div class="dialog_footer">
+                <!--<button type="button" class="family_modify">수정</button>-->
+                <button type="button" class="family_cancel">삭제</button>
+            </div>
+        </div>
+        <div class="contents">
+            <ul class="myinfo">
+                <li class="myinfotitle">
+                    <p class="subtitle">기본 정보</p>
+                </li>
+                <li class="myinfolist">
+                    <p class="subcategory">아이디</p>
+                    <p class="subinfo" id="account_id">dbwjd</p>
+                </li>
+                <li class="myinfolist">
+                    <p class="subcategory">이름</p>
+                    <p class="subinfo" id="account_name">전유정</p>
+                </li>
+                <li class="myinfolist">
+                    <p class="subcategory">주소</p>
+                    <p class="subinfo" id="account_address">수원시 장안구 성균관대학교</p>
+                </li>
+                <li class="myinfolist">
+                    <p class="subcategory">전화번호</p>
+                    <p class="subinfo" id="account_ph">01012345678</p>
+                </li>
+            </ul>
+            <ul class="subjects">
+                <li class="myinfotitle">
+                    <div class="subject_title">
+                        <p class="subtitle">가족목록</p>
+                    </div>
+                    <div class="add_and_sub">
+                        <a class="add_subject" href="add.html">+</a>
+                    </div>
+                </li>
+                <li class="myinfolist familylist">
+                    <div class="wrap_family">
+                        <div class="subject" id="my_account">
+                            <img class="defaultimg" src="img/default@2x.png"/>
+                            <p class="subjectname_my">나</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <ul class="voice_setting">
+                <li class="myinfotitle">
+                    <p class="subtitle">음성인식 설정</p>
+                </li>
+                <li class="myinfolist">
+                    <div class="voice_disable">
+                        <p id="voice_setting_title">음성인식으로 스마트 접수하기</p>
+                        <p id="voice_sub_guide">스마트 접수 시에 글자가 아닌 소리로 접수할 수 있습니다.</p>
+                    </div>
+                    <div class="chk_box">
+                        <input type="checkbox" name="voice_able" id="chk_voice" value="voice"/>
+                    </div>
+                    <!--<div class="voice_speed">
+                        <p id="voice_speed_title">안내 음성 빠르기</p>
+                    </div>
+                    <div id="slidecontainer">
+                        <div class="min_title">
+                            <p class="min_title_content">느리게</p>
+                        </div>
+                        <div class="max_title">
+                            <p class="max_title_content">빠르게</p>
+                        </div>
+                        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                    </div>-->
+                </li>
+            </ul>
+            <ul class="text_setting">
+                <li class="myinfotitle">
+                    <p class="subtitle">화면 글자 크기 설정</p>
+                </li>
+                <li class="myinfolist">
+                    <div id="slidecontainer_2">
+                        <div class="min_title">
+                            <p class="min_title_content">최대 작게</p>
+                        </div>
+                        <div class="max_title">
+                            <p class="max_title_content">최대 크게</p>
+                        </div>
+                        <input type="range" min="10" max="100" value="50" class="slider" id="myRange_2">
+                    </div>
+                    <div class="text_screen">
+                        <p id="text_demo">글자가 이 크기로 표시됩니다.</p>
+                    </div>
+                </li>
+            </ul>
+            <ul class="btns">
+                <li class="record">
+                    <p class="_btn" id="medical_record">내 진료내역</p>
+                </li>
+                <li class="log_out">
+                    <p class="_btn" id="logout_btn">로그아웃</p>
+                </li>
+            </ul>
+        </div>
+        <div class="container_my">
+            <div class="row align-items-center">
+                <div class="col">
+                    <a href="reserve.html">
+                        <img class="reserve_img" src="img/reserve@2x.png" align="middle"/>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="list.html">
+                        <img class="tab_nav_img" src="img/list@2x.png" align="middle"/>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="wait.html">
+                        <img class="tab_nav_img" src="img/wait@2x.png" align="middle"/>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="call_main.html">
+                        <img class="tab_nav_img" src="img/call@2x.png" align="middle"/>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="myaccount.html">
+                        <img class="tab_nav_img selected" src="img/my_account_s@2x.png" align="middle"/>
+                    </a>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col">
+                    <span class="tab_text">예약</span>
+                </div>
+                <div class="col">
+                    <span class="tab_text">조회</span>
+                </div>
+                <div class="col">
+                    <span class="tab_text">현황</span>
+                </div>
+                <div class="col">
+                    <span class="tab_text">호출</span>
+                </div>
+                <div class="col">
+                    <span class="tab_text selected">계정</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/init.js"></script>
+</body>
+</html>
